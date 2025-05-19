@@ -2,9 +2,13 @@
 name = "fastapi-tdd-docker"
 version = "0.1.0"
 description = "FastAPI project with TDD and Docker"
-authors = ["Julian Bazan Aguirre"]
+authors = [
+    "Julian Bazan Aguirre",
+]
 readme = "README.md"
-packages = [{include = "fastapi_tdd_docker"}]
+packages = [
+    { include = "fastapi_tdd_docker" },
+]
 
 [tool.poetry.dependencies]
 python = "^3.12"
@@ -12,7 +16,13 @@ fastapi = "0.115.12"
 uvicorn = "0.34.1"
 pydantic-settings = "2.8.1"
 
+[tool.aerich]
+tortoise_orm = "app.db.TORTOISE_ORM"
+location = "./migrations"
+src_folder = "./."
 
 [build-system]
-requires = ["poetry-core"]
+requires = [
+    "poetry-core",
+]
 build-backend = "poetry.core.masonry.api"
