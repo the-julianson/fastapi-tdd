@@ -26,3 +26,7 @@ async def get(id: int) -> Optional[dict]:
 async def get_all() -> List:
     summaries = await TextSummary.all().values()
     return summaries
+
+
+async def delete(id: int) -> None:
+    await TextSummary.filter(id=id).first().delete()
