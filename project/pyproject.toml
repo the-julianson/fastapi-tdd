@@ -16,6 +16,11 @@ fastapi = "0.115.12"
 uvicorn = "0.34.1"
 pydantic-settings = "2.8.1"
 
+[tool.black]
+line-length = 79
+target-version = ['py312']
+include = '\.pyi?$'
+
 [tool.aerich]
 tortoise_orm = "app.db.TORTOISE_ORM"
 location = "./migrations"
