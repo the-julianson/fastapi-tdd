@@ -1,9 +1,10 @@
 # project/app/main.py
 
 
+from fastapi import FastAPI
+
 from app.api import ping
 from app.db import init_db
-from fastapi import FastAPI
 
 
 def create_application() -> FastAPI:
