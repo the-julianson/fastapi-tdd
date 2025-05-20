@@ -41,6 +41,7 @@ venv.bak/
 
 # Testing
 .coverage
+.coveragerc
 htmlcov/
 .pytest_cache/
 .tox/
