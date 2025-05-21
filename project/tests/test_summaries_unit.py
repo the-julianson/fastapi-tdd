@@ -6,7 +6,7 @@ from datetime import datetime
 
 import pytest
 
-from app.api import crud
+from app.api import crud, summaries
 
 
 def test_create_summary(test_app, monkeypatch):
@@ -16,8 +16,11 @@ def test_create_summary(test_app, monkeypatch):
     async def mock_post(payload):
         return 1
 
-    monkeypatch.setattr(crud, "post", mock_post)
+    async def mock_generate_summary(summary_id: int, url: str) -> None:
+        return None
 
+    monkeypatch.setattr(crud, "post", mock_post)
+    monkeypatch.setattr(summaries, "generate_summary", mock_generate_summary)
     response = test_app.post(
         "/summaries/",
         data=json.dumps(test_request_payload),
